@@ -6,6 +6,7 @@ le_gusta_a(clara,jorge), le_gusta_a(clara,chocolate).
 le_gusta_a(clara,jorge); le_gusta_a(jorge,clara).
 /* Negación de predicados
 */
+not(le_gusta_a(clara,jorge)).
 /* o también como */
 \+ le_gusta_a(clara,jorge).
 /* Condicional: REGLAS
