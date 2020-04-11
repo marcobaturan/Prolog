@@ -1,12 +1,23 @@
-% Primer nivel de abstraccion.
-oracion --> sujeto, predicado.
+%% Programa que codifica las reglas basicas del esperanto.
+%% Basado en el libro de Fernando de Diego.
+%% El objetivo es un estudio computacional de una lengua
+%% construida. De gramatica simple y regular son excepciones.
+%% Esta es la version 2.
+%% Incluye generar negancion y preguntas.
+%% Para la proxima version se basara en POMEGO:
+%% Plena Manlibro Esperante Gramatiko.
+%% Primer nivel de abstraccion.
+
+% Generación de frases positivas.
+oracion_afirmativa --> sujeto, predicado.
 sujeto --> determinante, sustantivo.
-predicado --> verbo, sustantivo.
+predicado --> verbo, sustantivo,acusativo.
 predicado --> verbo_compuesto, sustantivo.
 verbo_compuesto --> verbo,raiz,tiempo_compuesto.
 verbo --> raiz, tiempo.
 % Componentes menores.
 % Determinantes.
+acusativo --> ['n'].
 determinate --> [].
 determinante --> ['la'].
 determinante --> ['un'].
@@ -27,3 +38,19 @@ tiempo_compuesto --> ['ota'].
 tiempo_compuesto --> ['inta'].
 tiempo_compuesto --> ['anta'].
 tiempo_compuesto --> ['onta'].
+% Generación de frases negativas.
+oracion_negativa --> sujeto, predicado_negativo.
+predicado_negativo --> negacion, verbo, sustantivo,acusativo.
+predicado_negativo --> negacion, verbo_compuesto, sustantivo,acusativo.
+% Negaciones.
+negacion --> ['ne'].
+negacion --> ['nenio'].
+negacion --> ['neniu'].
+negacion --> ['nenie'].
+negacion --> ['neniam'].
+negacion --> ['neniel'].
+negacion --> ['nenial'].
+negacion --> ['neniom'].
+negacion --> ['nenia'].
+negacion --> ['nenies']. 
+% Generación de preguntas.
