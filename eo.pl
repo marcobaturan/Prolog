@@ -12,7 +12,7 @@
 oracion_afirmativa --> sujeto, predicado.
 sujeto --> determinante, sustantivo.
 predicado --> verbo, sustantivo,acusativo.
-predicado --> verbo_compuesto, sustantivo.
+predicado --> verbo_compuesto, sustantivo,acusativo.
 verbo_compuesto --> verbo,raiz,tiempo_compuesto.
 verbo --> raiz, tiempo.
 % Componentes menores.
@@ -54,3 +54,18 @@ negacion --> ['neniom'].
 negacion --> ['nenia'].
 negacion --> ['nenies']. 
 % Generación de preguntas.
+oracion_consulta --> pregunta, predicado_consulta.
+oracion_consulta_negativa --> pregunta,negacion, predicado_consulta.
+pregunta --> particula.
+predicado_consulta --> predicado_q, sujeto, ['?'].
+predicado_q --> verbo, sustantivo.
+predicado_q --> verbo_compuesto.
+particula --> ['Kio'].
+particula --> ['Kie'].
+particula --> ['Kiu'].
+particula --> ['Kiam'].
+particula --> ['Kiel'].
+particula --> ['Kial'].
+particula --> ['Kiom'].
+particula --> ['Kia'].
+particula --> ['Kies'].
