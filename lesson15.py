@@ -23,6 +23,8 @@ except NameError:
     pass
 
 def consult(values):
+    prolog = Prolog()  # Call class
+    prolog.consult("coins.pl") # Call consult
     count = int(values[0] or 100)
     total = int(values[1] or 500)
     coins = Functor("coins", 3)
@@ -41,8 +43,6 @@ def consult(values):
     q.closeQuery()
 
 def main():
-    prolog = Prolog()  # Call class
-    prolog.consult("coins.pl") # Call consult
     sg.theme('DarkAmber')   # Add a touch of color
     # All the stuff inside your window.
     layout = [[sg.Text("How many coins (default: 100)? "), sg.InputText()],
@@ -53,14 +53,10 @@ def main():
     # Event Loop to process "events" and get the "values" of the inputs
     while True:
         event, values = window.read()
-        if event == sg.WIN_CLOSED:
+        if event == sg.WIN_CLOSED or event == 'Close!':
             break
         elif event == 'Coins!': # if user closes window or clicks cancel
             consult(values=values)
-        elif event == 'Close!':
-            break
-        else:
-            pass
     window.close()
 
 
